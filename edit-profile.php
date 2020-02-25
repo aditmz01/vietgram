@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +23,7 @@
         <div class="navigation__column">
             <ul class="navigations__links">
                 <li class="navigation__list-item">
-                    <a href="explore.html" class="navigation__link">
+                    <a href="explore.php" class="navigation__link">
                         <i class="fa fa-compass fa-lg"></i>
                     </a>
                 </li>
@@ -34,7 +33,7 @@
                     </a>
                 </li>
                 <li class="navigation__list-item">
-                    <a href="profile.html" class="navigation__link">
+                    <a href="profile.php" class="navigation__link">
                         <i class="fa fa-user-o fa-lg"></i>
                     </a>
                 </li>
@@ -109,4 +108,4 @@
     </footer>
 </body>
 
-</html>
+?>
