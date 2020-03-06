@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <?php session_start();
-    ?>
+    <?php session_start(); ?>
     <head> 
         <title>Vietgram | Login</title>
         <meta charset="UTF-8">
