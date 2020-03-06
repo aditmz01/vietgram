@@ -78,8 +78,7 @@
         <section class="profile__photos">
         <?php
           for ($i=0; $i < $jmlData; $i++) { 
-              # code...
-          
+
         ?>
             <div class="profile__photo">
                 <img src="images/foto_user/<?php echo $_SESSION['username']."/".$rows[$i][0]; ?>" />

@@ -82,7 +82,6 @@
                 </div>
                 <div class="form__row">
                     <label for="gender" class="form__label">Gender:</label>
-                    <?php echo $_SESSION['gender']; ?>
                     <select name="gender">
                         <?php
                             if($_SESSION['gender'] == 0) {

@@ -11,7 +11,7 @@
 <body>
     <nav class="navigation">
         <div class="navigation__column">
-            <a href="feed.ph">
+            <a href="feed.php">
                 <img src="images/logo.png" />
             </a>
         </div>
