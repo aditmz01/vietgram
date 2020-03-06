@@ -1,5 +1,12 @@
-<?php
-
+<!DOCTYPE html>
+<html lang="en">
+<?php 
+    session_start();
+    include("koneksi.php");
+    $data_photo = mysqli_query($conn,"select * from photo where username='". $_SESSION['username']. "'");
+    $jmlData = mysqli_num_rows($data_photo);
+    while($rows[]=mysqli_fetch_array($data_photo));
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +19,7 @@
 <body>
     <nav class="navigation">
         <div class="navigation__column">
-            <a href="feed.html">
+            <a href="feed.php">
                 <img src="images/logo.png" />
             </a>
         </div>
@@ -46,39 +53,48 @@
                 <div class="edit-profile__avatar-container">
                     <img src="images/avatar.jpg" class="edit-profile__avatar" />
                 </div>
-                <h4 class="edit-profile__username">serranoarevalo</h4>
+                <h4 class="edit-profile__username"><?php echo $_SESSION['username'];?></h4>
             </header>
-            <form action="" class="edit-profile__form">
+            <form action="editprofile.php" class="edit-profile__form" method="post">
                 <div class="form__row">
                     <label for="full-name" class="form__label">Name:</label>
-                    <input id="full-name" type="text" class="form__input" />
+                    <input name="name" type="text" class="form__input" value="<?php echo $_SESSION['name']?>"/>
                 </div>
                 <div class="form__row">
                     <label for="user-name" class="form__label">Username:</label>
-                    <input id="user-name" type="text" class="form__input" />
+                    <input name="user-name" type="text" class="form__input" value="<?php echo $_SESSION['username']?>" disabled/>
                 </div>
                 <div class="form__row">
                     <label for="website" class="form__label">Website:</label>
-                    <input id="website" type="url" class="form__input" />
+                    <input name="website" type="url" class="form__input" value="<?php echo $_SESSION['website']?>"/>
                 </div>
                 <div class="form__row">
                     <label for="bio" class="form__label">Bio:</label>
-                    <textarea id="bio"></textarea>
+                    <textarea name="bio"><?php echo $_SESSION['bio']?></textarea>
                 </div>
                 <div class="form__row">
                     <label for="email" class="form__label">Email:</label>
-                    <input id="email" type="email" class="form__input" />
+                    <input name="email" type="email" class="form__input" value="<?php echo $_SESSION['email']?>"/>
                 </div>
                 <div class="form__row">
                     <label for="phone" class="form__label">Phone Number:</label>
-                    <input id="phone" type="tel" class="form__input" />
+                    <input name="phone" type="tel" class="form__input" value="<?php echo $_SESSION['nohp']?>"/>
                 </div>
                 <div class="form__row">
                     <label for="gender" class="form__label">Gender:</label>
-                    <select id="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="cant">Can't remember</option>
+                    <?php echo $_SESSION['gender']; ?>
+                    <select name="gender">
+                        <?php
+                            if($_SESSION['gender'] == 0) {
+                        ?>
+                            <option value="0" selected>Female</option>
+                            <option value="1">Male</option>
+                        <?php } else { ?>
+                            <option value="0">Female</option>
+                            <option value="1" selected>Male</option>
+                        <?php } ?>
+                        
+                        
                     </select>
                 </div>
                 <input type="submit" value="Submit">
@@ -108,4 +124,4 @@
     </footer>
 </body>
 
-?>
+</html>

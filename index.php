@@ -1,5 +1,8 @@
-<?php
-    <head>
+<!DOCTYPE html>
+<html>
+    <?php session_start();
+    ?>
+    <head> 
         <title>Vietgram | Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +10,9 @@
         <meta name="description" content="Vietgram, like Instagram but with Pho" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
     <body>
         <main id="login">
@@ -16,7 +22,7 @@
             <div class="login__column">
                 <div class="login__box">
                     <img src="images/loginLogo.png" class="login__logo" />
-                    <form action="validasi_login.php" method="get" class="login__form">
+                    <form action="validasi_login.php" method="post" class="login__form">
                         <input type="text" name="username" placeholder="Username" required />
                         <input type="password" name="password" placeholder="Password" required />
                         <input type="submit" value="Log in" />
@@ -62,4 +68,4 @@
             </div>
         </footer>
     </body>
-?>
+</html>

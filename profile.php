@@ -1,5 +1,10 @@
 <?php
-
+    session_start();
+    include("koneksi.php");
+    $data_photo = mysqli_query($conn,"select * from photo where username='". $_SESSION['username']. "'");
+    $jmlData = mysqli_num_rows($data_photo);
+    while($rows[]=mysqli_fetch_array($data_photo));
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +52,7 @@
             </div>
             <div class="profile__column">
                 <div class="profile__title">
-                    <h3 class="profile__username">serranoarevalo</h3>
+                    <h3 class="profile__username"><?php echo $_SESSION['username'];?></h3>
                     <a href="edit-profile.php">Edit profile</a>
                     <i class="fa fa-cog fa-lg"></i>
                 </div>
@@ -64,17 +69,20 @@
                 </ul>
                 <p class="profile__bio">
                     <span class="profile__full-name">
-                        Nicolás Serrano Arévalo
-                    </span> Doing whatever and eating Pho Lorem ipsum dolor sit amet consectetur, adipisicing
-                    elit. Ducimus suscipit praesentium eveniet quibusdam ipsam omnis fugit. Tempore voluptates ratione recusandae
-                    natus illo perspiciatis suscipit, odio consequuntur quasi obcaecati minus! Omnis.
-                    <a href="#">serranoarevalo.com</a>
+                    <?php echo $_SESSION['name'];?><br>
+                    </span> <?php echo $_SESSION['bio'];?>
+                    <a href="#"><?php echo $_SESSION['website'];?></a>
                 </p>
             </div>
         </header>
         <section class="profile__photos">
+        <?php
+          for ($i=0; $i < $jmlData; $i++) { 
+              # code...
+          
+        ?>
             <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
+                <img src="images/foto_user/<?php echo $_SESSION['username']."/".$rows[$i][0]; ?>" />
                 <div class="profile__photo-overlay">
                     <span class="overlay__item">
                         <i class="fa fa-heart"></i>
@@ -86,45 +94,8 @@
                     </span>
                 </div>
             </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                            <i class="fa fa-heart"></i>
-                            486
-                        </span>
-                    <span class="overlay__item">
-                            <i class="fa fa-comment"></i>
-                            344
-                        </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                                <i class="fa fa-heart"></i>
-                                486
-                            </span>
-                    <span class="overlay__item">
-                                <i class="fa fa-comment"></i>
-                                344
-                            </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                                    <i class="fa fa-heart"></i>
-                                    486
-                                </span>
-                    <span class="overlay__item">
-                                    <i class="fa fa-comment"></i>
-                                    344
-                                </span>
-                </div>
-            </div>
+          <?php } ?>
+           
         </section>
     </main>
     <footer class="footer">
@@ -149,4 +120,3 @@
         </div>
     </footer>
 </body>
-?>
