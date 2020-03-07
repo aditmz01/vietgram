@@ -30,6 +30,11 @@
         <div class="navigation__column">
             <ul class="navigations__links">
                 <li class="navigation__list-item">
+                    <a href="logout.php" class="navigation__link">
+                        <i class="fa fa-sign-out"></i>
+                    </a>
+                </li>
+                <li class="navigation__list-item">
                     <a href="explore.php" class="navigation__link">
                         <i class="fa fa-compass fa-lg"></i>
                     </a>

@@ -15,7 +15,8 @@
     <title>Feed | Vietgram</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    </head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+</head>
 
 <body>
     <nav class="navigation">
@@ -26,12 +27,12 @@
             </a>
         </div>
         <div class="navigation__column">
-            <i class="fa fa-search"></i>
-            <input type="text" placeholder="Search">
+            <i class="fa fa-search"></i>            
+            <input type="text" id="search" placeholder="Search">
         </div>
         <div class="navigation__column">
             <ul class="navigations__links">
-            <li class="navigation__list-item">
+                <li class="navigation__list-item">
                     <a href="logout.php" class="navigation__link">
                         <i class="fa fa-sign-out"></i>
                     </a>
@@ -110,6 +111,28 @@
             <span class="footer__copyright">© 2017 Vietgram</span>
         </div>
     </footer>
+    <script>
+                $(document).ready(function(){
+                    $('#search').keyup(function(){
+                    
+                        // Search text
+                        var text = $(this).val();
+
+                        // first hide the feed div
+                        $('.photo').hide();
+
+                        // Search and show
+                        $('.photo').each(function(){
+    
+                            if($(this).text().toLowerCase().indexOf(""+text+"") != -1 ){
+                                $(this).closest('.photo').show();
+                            }
+                        });
+                    });
+
+                   
+                });
+            </script>
 </body>
 
 </html>
